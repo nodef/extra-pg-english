@@ -1,14 +1,24 @@
 {
-  "name": "pg-english",
-  "version": "0.1.35",
+  "name": "extra-pg-english",
+  "version": "0.2.0",
   "description": "Convert english query to informal SQL SELECT.",
   "main": "index.js",
-  "scripts": {
-    "test": "exit"
+  "module": "index.mjs",
+  "exports": {
+    "require": {
+      "default": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "import": {
+      "default": "./index.mjs",
+      "types": "./index.d.ts"
+    }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nodef/pg-english.git"
+  "scripts": {
+    "test": "exit",
+    "build": "node build.js",
+    "publish-docs": "node build.js publish-docs",
+    "publish-packages": "node build.js publish-packages"
   },
   "keywords": [
     "pg",
@@ -24,15 +34,27 @@
   ],
   "author": "wolfram77@gmail.com",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nodef/pg-english/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/extra-pg-english.git"
   },
-  "homepage": "https://github.com/nodef/pg-english#readme",
+  "bugs": {
+    "url": "https://github.com/nodef/extra-pg-english/issues"
+  },
+  "homepage": "https://github.com/nodef/extra-pg-english#readme",
   "dependencies": {
-    "@pg-english/entity": "^0.1.8",
-    "@pg-english/number": "^0.1.11",
-    "@pg-english/reserved": "^0.1.7",
-    "@pg-english/token": "^0.1.10",
-    "@pg-english/unit": "^0.1.1"
+    "@florajs/sql-parser": "^3.0.0",
+    "natural": "^0.6.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.14.0",
+    "extra-build": "^2.3.0",
+    "jest": "^29.7.0",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-dts": "^6.2.1",
+    "ts-jest": "^29.3.1"
   }
 }

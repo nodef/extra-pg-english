@@ -1,0 +1,63 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - '!*'  # Do not execute on tags
+env:
+  NAME:  ${{vars.NAME}}
+  EMAIL: ${{vars.EMAIL}}
+  NPM_TOKEN:    ${{secrets.NPM_TOKEN}}
+  GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+  FORCE_COLOR: 1
+
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, windows-latest, macOS-latest]
+        node: [20.x, 22.x]
+    name: Test with Node ${{matrix.node}} on ${{matrix.platform}}
+    runs-on: ${{matrix.platform}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node}}
+      - run: npm ci
+      - run: npm test
+
+
+  docs:
+    name: Publish docs
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+      - uses: nodef/git-config.action@v1.0.0
+      - run: npm i -g typescript typedoc
+      - run: npm ci
+      - run: npm run publish-docs
+
+
+  packages:
+    name: Publish packages
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+      - uses: nodef/npm-config.action@v1.0.0
+        with:
+          entries: access = public
+      - run: npm i -g typescript rollup typedoc browserify terser
+      - run: npm ci
+      - run: npm run publish-packages
