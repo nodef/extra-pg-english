@@ -146,7 +146,7 @@ await convertToFormalSQL(/*  */, mapFnDB, null, options);
 
 [![](https://img.youtube.com/vi/yqO7wVBTuLw/maxresdefault.jpg)](https://www.youtube.com/watch?v=yqO7wVBTuLw)<br>
 [![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
-
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/extra-pg-english)
 
 [english query]: https://www.nexthink.com/blog/natural-language-interfaces-to-databases-nlidb/
 [SQL SELECT]: https://www.postgresql.org/docs/10/static/sql-select.html
