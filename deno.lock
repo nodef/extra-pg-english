@@ -1,0 +1,40 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@nodef/extra-english@*": "0.1.0",
+    "jsr:@nodef/extra-english@0.1.0": "0.1.0",
+    "jsr:@std/assert@*": "1.0.12",
+    "jsr:@std/internal@^1.0.6": "1.0.6",
+    "npm:@florajs/sql-parser@*": "3.0.0",
+    "npm:@florajs/sql-parser@3.0.0": "3.0.0"
+  },
+  "jsr": {
+    "@nodef/extra-english@0.1.0": {
+      "integrity": "085d3df8d68587d22a484875e52545da82d9b4e37f42e03a66920ae4fcab0e94"
+    },
+    "@std/assert@1.0.12": {
+      "integrity": "08009f0926dda9cbd8bef3a35d3b6a4b964b0ab5c3e140a4e0351fbf34af5b9a",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/internal@1.0.6": {
+      "integrity": "9533b128f230f73bd209408bb07a4b12f8d4255ab2a4d22a1fd6d87304aca9a4"
+    }
+  },
+  "npm": {
+    "@florajs/errors@4.0.0": {
+      "integrity": "sha512-QyW0xczY+SPaHhqCvPujlGBL+Ov4RqulcCF8pxH4Vbs6j8Sg9QeMahkWCcRg/zUDuKi+NU+f1otwrLKe+NS6pQ=="
+    },
+    "@florajs/sql-parser@3.0.0": {
+      "integrity": "sha512-+NoO7pDLPWqzgDwHD95o9TZ6kMPT9Ko22zKRbC6F80fTjLWkyBCYoeQo7nJfOFI9378gFfN4QC5stihRCpMTXg==",
+      "dependencies": [
+        "@florajs/errors",
+        "has"
+      ]
+    },
+    "has@1.0.4": {
+      "integrity": "sha512-qdSAmqLF6209RFj4VVItywPMbm3vWylknmB3nvNiUIs72xAimcM8nVYxYr7ncvZq5qzk9MKIZR8ijqD/1QuYjQ=="
+    }
+  }
+}
